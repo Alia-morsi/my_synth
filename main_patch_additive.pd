@@ -1,0 +1,100 @@
+#N canvas 28 23 1146 697 10;
+#X obj 56 57 wave_gen;
+#X text 58 33 1;
+#X obj 596 55 wave_gen;
+#X text 601 30 2;
+#X obj 341 57 wave_gen;
+#X text 341 32 3;
+#X obj 847 54 wave_gen;
+#X text 847 29 4;
+#N canvas 273 158 738 481 additive 0;
+#X obj 49 18 inlet~;
+#X obj 101 18 inlet~;
+#X obj 156 17 inlet~;
+#X obj 211 17 inlet~;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array mix 100 float 1 black black;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 322 230 graph;
+#X obj 324 404 hsl 128 15 0 100 0 0 ovr_amp_snd empty empty -2 -8 0
+10 -262144 -1 -1 11950 1;
+#X text 323 381 Overall Amplitude;
+#X floatatom 482 403 5 0 0 0 - - -, f 5;
+#X obj 80 68 +~;
+#X obj 116 69 +~;
+#X obj 101 105 +~;
+#X obj 101 193 outlet~;
+#X obj 101 157 *~;
+#X obj 146 131 dbtorms;
+#X obj 146 88 r ovr_amp_snd;
+#X floatatom 146 109 5 0 0 0 - - -, f 5;
+#X obj 41 240 metro 100;
+#X obj 41 271 tabwrite~ mix;
+#X obj 302 209 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X connect 0 0 8 0;
+#X connect 1 0 8 1;
+#X connect 2 0 9 0;
+#X connect 3 0 9 1;
+#X connect 5 0 7 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 1;
+#X connect 10 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 0 17 0;
+#X connect 13 0 12 1;
+#X connect 14 0 15 0;
+#X connect 15 0 13 0;
+#X connect 16 0 17 0;
+#X connect 18 0 16 0;
+#X coords 0 -1 1 1 250 250 1 294 199;
+#X restore 350 310 pd additive;
+#X obj 351 594 dac~;
+#N canvas 560 109 519 468 ADSR.pd 0;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array adsr_arr_\$0 100 float 1 black black;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51428 0.685707 0.857134
+0.542851 0.457138 0.371425 0.314282 0.199998 0.142856 0.114285 0 -0.0571423
+-0.114285 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0;
+#X coords 0 1 99 -1 100 70 1;
+#X restore 159 33 graph;
+#X obj 114 105 vradio 15 0 0 2 type_snd_\$0 type_rcv_\$0 empty 0 -8
+0 10 -262144 -1 -1 0;
+#X text 137 104 Drone;
+#X text 136 121 Envelope;
+#X obj 7 152 r type_snd_\$0;
+#X obj 115 228 *;
+#X obj 245 228 *;
+#X obj 130 169 expr if ($f1 == 0 \, 1 \, 0), f 9;
+#X obj 199 168 expr if ($f1 == 1 \, 1 \, 0), f 9;
+#X msg 79 195 1;
+#X msg 269 170 1 1000 \, 0.7 1000 1000 \, 0 1000 3000;
+#X obj 258 355 tabwrite~ adsr_arr_\$0;
+#X obj 189 268 +;
+#X obj 189 304 vline~;
+#X obj 189 355 outlet~;
+#X connect 4 0 7 0;
+#X connect 5 0 12 0;
+#X connect 6 0 12 1;
+#X connect 7 0 5 1;
+#X connect 8 0 6 0;
+#X connect 9 0 5 0;
+#X connect 10 0 6 1;
+#X connect 12 0 13 0;
+#X connect 13 0 14 0;
+#X connect 13 0 11 0;
+#X coords 0 -1 1 1 160 120 1 105 18;
+#X restore 716 429 pd ADSR.pd;
+#X obj 144 408 audio-rec;
+#X connect 0 0 8 0;
+#X connect 2 0 8 2;
+#X connect 4 0 8 1;
+#X connect 6 0 8 3;
+#X connect 8 0 9 0;
+#X connect 8 0 9 1;
