@@ -1,4 +1,4 @@
-#N canvas 128 77 1094 644 10;
+#N canvas 128 76 1094 644 10;
 #X obj 100 25 cnv 15 381 62 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X text 112 31 subpatch to abstract the generation of signals. Inputs:
@@ -9,7 +9,7 @@ signal\ type 30 40 0 10 -4032 -86277 -1 0;
 #X obj 520 190 phasor~;
 #X obj 654 189 pd-tutorial-patches/square, f 14;
 #X obj 132 274 hsl 128 15 50 300 0 0 freq_snd_\$0 freq_rcv_\$0 empty
--2 -8 0 10 -262144 -1 -1 3900 1;
+-2 -8 0 10 -262144 -1 -1 0 1;
 #X floatatom 520 149 5 0 0 0 - - -, f 5;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array wav_gen_out_\$0 1000 float 1 black black;
@@ -160,7 +160,7 @@ signal\ type 30 40 0 10 -4032 -86277 -1 0;
 #X obj 677 328 *~;
 #X obj 751 327 *~;
 #X obj 131 312 hsl 128 15 0 100 0 0 amp_snd_\$0 amp_rcv_\$0 empty -2
--8 0 10 -262144 -1 -1 11850 1;
+-8 0 10 -262144 -1 -1 0 1;
 #X text 110 294 Amplitude;
 #X text 109 255 Frequency;
 #X obj 594 474 *~;
@@ -175,13 +175,13 @@ signal\ type 30 40 0 10 -4032 -86277 -1 0;
 #X obj 735 542 tabwrite~ wav_gen_out_\$0;
 #X obj 732 378 r on_off_snd_\$0;
 #X obj 486 486 r on_off_snd_\$0;
-#X obj 376 371 inlet;
-#X obj 377 298 inlet;
+#X obj 322 535 inlet;
+#X obj 151 533 inlet;
 #X floatatom 278 274 5 0 0 0 - - -, f 5;
 #X floatatom 277 309 5 0 0 0 - - -, f 5;
 #X obj 368 219 r vradio-help-snd_\$0;
-#X obj 377 334 s freq_rcv_\$0;
-#X obj 376 407 s amp_rcv_\$0;
+#X obj 151 569 s freq_rcv_\$0;
+#X obj 322 571 s amp_rcv_\$0;
 #X obj 658 419 r amp_snd_\$0;
 #X obj 520 116 r freq_snd_\$0;
 #X connect 3 0 20 0;

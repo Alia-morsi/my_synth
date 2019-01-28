@@ -1,0 +1,127 @@
+#N canvas 194 195 985 571 10;
+#X obj 211 508 outlet;
+#X obj 281 508 outlet;
+#X obj 259 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 288 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 274 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 303 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 319 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 348 262 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 365 246 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 531 238 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 531 259 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 459 12 Initialized to C5 \, But one up and one down toggle
+buttons change that.;
+#X floatatom 232 157 5 0 0 0 - - -, f 5;
+#X symbolatom 476 281 10 0 0 0 - note_rcv note_snd, f 10;
+#X obj 180 43 inlet;
+#X obj 270 42 inlet;
+#X text 167 16 Midi Value;
+#X text 263 15 Velocity;
+#X obj 357 41 inlet;
+#X text 350 14 Duration;
+#X text 459 53 This patch does not concern sequencing. Inputs to change
+midi values are on the hot inlets. It is MIDI out immediately.;
+#X text 609 334 Note that the modulo 12 can be done differently such
+that we get microtonals but I don't want to get into this now;
+#X text 608 374 To do: add an output for flat \, natural \, or sharp
+;
+#X obj 180 69 lec_3_patches/note2octave+pclass;
+#X obj 311 464 lec_3_patches/octave+pclass2note;
+#X floatatom 179 110 5 0 0 0 - - -, f 5;
+#X floatatom 369 100 5 0 0 0 - - -, f 5;
+#X obj 213 90 loadbang;
+#X obj 153 304 loadbang;
+#X obj 882 224 table note;
+#X obj 881 256 table accidental;
+#X msg 543 111 \; note read tables/tones.txt;
+#X msg 543 156 \; accidental tables/accidentals.txt;
+#X msg 219 332 symbol C;
+#X msg 266 356 symbol D;
+#X msg 299 332 symbol E;
+#X msg 349 355 symbol F;
+#X msg 384 332 symbol G;
+#X obj 428 355 symbol A;
+#X msg 473 333 symbol B;
+#X obj 382 261 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 398 245 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 415 261 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 431 245 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 448 261 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 553 235 up octave;
+#X text 553 257 down octave;
+#X obj 274 208 sel 0 1 2 3 4 5 6 7 8 9 10 11;
+#X obj 244 400 s note_rcv;
+#X msg 232 122 4;
+#X obj 592 461 lec_3_patches/counter_modulo;
+#X msg 153 260 symbol ♮;
+#X obj 61 290 s symbol_rcv;
+#X symbolatom 473 242 10 0 0 0 - symbol_rcv -, f 10;
+#X msg 154 226 symbol ♯;
+#X connect 2 0 33 0;
+#X connect 2 0 51 0;
+#X connect 3 0 34 0;
+#X connect 3 0 51 0;
+#X connect 4 0 33 0;
+#X connect 4 0 54 0;
+#X connect 5 0 34 0;
+#X connect 5 0 54 0;
+#X connect 6 0 35 0;
+#X connect 6 0 51 0;
+#X connect 7 0 36 0;
+#X connect 7 0 51 0;
+#X connect 8 0 36 0;
+#X connect 8 0 54 0;
+#X connect 14 0 23 0;
+#X connect 23 0 25 0;
+#X connect 23 1 26 0;
+#X connect 25 0 12 0;
+#X connect 26 0 47 0;
+#X connect 27 0 12 0;
+#X connect 28 0 33 0;
+#X connect 33 0 48 0;
+#X connect 34 0 48 0;
+#X connect 35 0 48 0;
+#X connect 36 0 48 0;
+#X connect 37 0 48 0;
+#X connect 38 0 48 0;
+#X connect 39 0 48 0;
+#X connect 40 0 37 0;
+#X connect 40 0 51 0;
+#X connect 41 0 37 0;
+#X connect 41 0 54 0;
+#X connect 42 0 38 0;
+#X connect 42 0 51 0;
+#X connect 43 0 38 0;
+#X connect 43 0 54 0;
+#X connect 44 0 39 0;
+#X connect 44 0 51 0;
+#X connect 47 0 2 0;
+#X connect 47 1 4 0;
+#X connect 47 2 3 0;
+#X connect 47 3 5 0;
+#X connect 47 4 6 0;
+#X connect 47 5 7 0;
+#X connect 47 6 8 0;
+#X connect 47 7 40 0;
+#X connect 47 8 41 0;
+#X connect 47 9 42 0;
+#X connect 47 10 43 0;
+#X connect 47 11 44 0;
+#X connect 49 0 12 0;
+#X connect 51 0 52 0;
+#X connect 54 0 52 0;
