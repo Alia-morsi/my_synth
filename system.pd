@@ -1,0 +1,7 @@
+#N canvas 236 48 1023 673 10;
+#X obj 48 322 main_patch_additive;
+#X obj 200 125 midi_2_freq_ampl;
+#X floatatom 199 263 5 0 0 0 - - -, f 5;
+#X floatatom 204 78 5 0 0 0 - - -, f 5;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
