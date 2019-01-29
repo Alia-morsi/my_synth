@@ -1,5 +1,5 @@
-#N canvas 20 23 1239 673 10;
-#X obj 49 405 main_patch_additive;
+#N canvas 35 25 1239 696 10;
+#X obj 50 353 main_patch_additive;
 #X obj 50 163 midi_2_freq_ampl;
 #X floatatom 50 305 5 0 0 0 - - -, f 5;
 #X floatatom 51 137 5 0 0 0 - - -, f 5;
