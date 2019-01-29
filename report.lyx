@@ -1,0 +1,275 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Computational Creativity Lab 3
+\end_layout
+
+\begin_layout Author
+Alia Morsi: u163640
+\end_layout
+
+\begin_layout Section
+Usage
+\end_layout
+
+\begin_layout Subsection
+Patch Summary
+\end_layout
+
+\begin_layout Standard
+Just to get started, to listen to output, open system.pd.
+ Then, click the toggle button on the markov patch, on the first main_patch_addi
+tive wav_gen box, and slide the amplitude in that same wave_gen box until
+ you can hear a sound.
+\end_layout
+
+\begin_layout Subsubsection
+markov:
+\end_layout
+
+\begin_layout Standard
+Implements first order Markov.
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Note Duration
+\series default
+ can be controlled via the tempo slider: This ranges from 200 to 400, and
+ is used to set the metro object that times the writing of the next note,
+ and is also used to set the duration of the midi note output.
+ Since the duration of the note is the same as the time to wait between
+ successive notes, there would be no silence.
+ 
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+However, only the frequency (and not the amplitude) is sent from the patches
+ to my synth, so technically the 0 amplitude message to signal the stop
+ of the note will not be processed as a stopping note.
+ 
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+The boxes are from 0 - 11 and indicate the midi pitch
+\end_layout
+
+\begin_layout Itemize
+Since the pitches are from 0 - 11 only, the octave number box can be used
+ to raise the output by 
+\series bold
+octaves.
+
+\series default
+ The possible range is 1 - 8 and defaults to 4.
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+To start the patch, hit the toggle box.
+\end_layout
+
+\begin_layout Standard
+To move between markov probability tables, there is feedback within the
+ markov patch (indicated by the control connection that spans bottom to
+ top in the patch, kept on purpose to be super clear that there is feedback).
+ To see this in the markov.pd patch, observe the 2nd output of the coll object,
+ where it is clear how the index is changing.
+\end_layout
+
+\begin_layout Subsubsection
+midi_2_freq_ampl:
+\end_layout
+
+\begin_layout Standard
+Can be used for midi control (if the inlets are ignored and the GUI is used),
+ or for midi display (if the inlets are used, the GUI responds to their
+ input).
+ 
+\end_layout
+
+\begin_layout Itemize
+The octave number can be modified from this box (if there is no input from
+ the inlet), or it can be used to display what's coming in as input
+\end_layout
+
+\begin_layout Itemize
+The pitch is displayed in the bang button keyboard and in the symbol boxes.
+ Note that we only use natural and sharp symbols to indicate pitch.
+\end_layout
+
+\begin_layout Subsubsection
+main_patch_additive:
+\end_layout
+
+\begin_layout Standard
+The additive synthesizer patch takes four input frequencies.
+ Only one of them will take input from the markov patch.
+ Only one other input is connected to a midi_2_freq_ampl patch, and the
+ rest are kept disconnected, although they can be controlled via their sliders.
+\end_layout
+
+\begin_layout Subsection
+Limitations
+\end_layout
+
+\begin_layout Enumerate
+Note that the accidentals (natural and sharp) should be more sophisticated
+ if it were to take into account scale context to decide whether a note
+ is sharp or flat (A flat not equal G# etc), but that was not considered
+ for this assignment, although scale context is important if this shall
+ could be used musically.
+\end_layout
+
+\begin_layout Enumerate
+Musically speaking, the probabilities of first or second order would vary
+ depending on the scale we are in.
+ For example, If I am in C major, the probability of notes that follow an
+ A is different than those that would follow an A if I were in A Major.
+ However, this is understood as a limitation but not explored at the moment.
+ 
+\end_layout
+
+\begin_layout Enumerate
+There is still no ADSR on the synthesizer.
+ That was missing from last week and I did not get the chance to improve
+ it.
+\end_layout
+
+\begin_layout Enumerate
+Another problem is that any amplitude change with the wave_gen connected
+ to the Markov generator creates a clicking sound.
+ That’s a huge problem but I’m not sure what should be done.
+\end_layout
+
+\begin_layout Enumerate
+I guess it is important to carefully make a .coll file because at this point,
+ there is not much aesthetic difference between a random note generator
+ and my current system.
+\end_layout
+
+\begin_layout Subsection
+Ideas
+\end_layout
+
+\begin_layout Standard
+It would be nice to have probability tables for each scale and to just change
+ the scale using midi input (i.e from midi input you can get the tonic of
+ the scale).
+ That can still be Markov order 1 as we would consider only the past note,
+ but would need a different representation (to view the probabilities as
+ distances from tonic, and then after calculating the necessary distance,
+ add it to the current tonic).
+ 
+\end_layout
+
+\begin_layout Section
+Implementation 
+\end_layout
+
+\begin_layout Subsection
+Overview of Choices:
+\end_layout
+
+\begin_layout Itemize
+For this assignment, the synthesizer from last week was used (main_patch_additiv
+e.pd).
+ Minor tweaks were made to it in terms of initialization and updating the
+ inlets.
+\end_layout
+
+\begin_layout Itemize
+The aforementioned markov.pd and midi_2_freq_ampl.pd patches are this week's
+ additions to the system.
+\end_layout
+
+\begin_layout Itemize
+Minor changes to some of the patches provided in the lectures.
+ The ones that were used are provided in lec_3_patches folder of the submission
+\end_layout
+
+\begin_layout Itemize
+makenote is used in the markov.pd, such that the output of the patch is 
+\end_layout
+
+\begin_layout Itemize
+the probabilities used in the collection can be found in probabilities/lab3.coll
+\end_layout
+
+\end_body
+\end_document
