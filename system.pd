@@ -1,7 +1,9 @@
-#N canvas 170 23 1023 673 10;
-#X obj 48 322 main_patch_additive;
-#X obj 200 125 midi_2_freq_ampl;
-#X floatatom 200 265 5 0 0 0 - - -, f 5;
-#X floatatom 200 86 5 0 0 0 - - -, f 5;
+#N canvas 26 23 1239 673 10;
+#X obj 49 405 main_patch_additive;
+#X obj 441 169 midi_2_freq_ampl;
+#X floatatom 441 302 5 0 0 0 - - -, f 5;
+#X floatatom 442 143 5 0 0 0 - - -, f 5;
+#X obj 442 76 markov;
 #X connect 1 0 2 0;
 #X connect 3 0 1 0;
+#X connect 4 0 3 0;
