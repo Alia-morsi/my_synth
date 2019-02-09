@@ -1,0 +1,50 @@
+#N canvas 114 72 996 596 10;
+#N canvas 0 22 450 300 (subpatch) 0;
+#X array adsr_arr_\$0 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.51428 0.685707 0.857134
+0.542851 0.457138 0.371425 0.314282 0.199998 0.142856 0.114285 0 -0.0571423
+-0.114285 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0;
+#X coords 0 1 99 -1 140 60 1 0 0;
+#X restore 115 117 graph;
+#X obj 70 189 vradio 15 0 0 2 type_snd_\$0 type_rcv_\$0 empty 0 -8
+0 10 -262144 -1 -1 0;
+#X text 93 188 Drone;
+#X text 92 205 Envelope;
+#X obj 182 246 r type_snd_\$0;
+#X obj 166 350 *;
+#X obj 296 350 *;
+#X msg 130 317 1;
+#X msg 329 297 1 1000 \, 0.7 1000 1000 \, 0 1000 3000;
+#X obj 309 477 tabwrite~ adsr_arr_\$0;
+#X obj 240 390 +;
+#X obj 240 426 vline~;
+#X obj 240 477 outlet~;
+#X obj 614 332 tgl 20 0 empty empty empty 17 7 0 10 -228856 -1 -1 0
+1;
+#X text 580 333 gate;
+#X obj 614 382 sig~;
+#X obj 638 268 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 651 295 delay 1000;
+#X obj 707 207 inlet;
+#X floatatom 707 241 5 0 0 0 - - -;
+#X obj 614 404 else/adsr~ 1000 500 0.5 1500, f 37;
+#X obj 182 277 sel 0 1;
+#X connect 4 0 21 0;
+#X connect 5 0 10 0;
+#X connect 6 0 10 1;
+#X connect 7 0 5 0;
+#X connect 8 0 6 1;
+#X connect 10 0 11 0;
+#X connect 11 0 12 0;
+#X connect 11 0 9 0;
+#X connect 13 0 15 0;
+#X connect 15 0 20 0;
+#X connect 16 0 17 0;
+#X connect 16 0 13 0;
+#X connect 17 0 13 0;
+#X connect 18 0 19 0;
+#X connect 19 0 17 1;
+#X coords 0 -1 1 1 260 130 1 60 100;
