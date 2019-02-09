@@ -4,15 +4,15 @@
 #X text 112 31 subpatch to abstract the generation of signals. Inputs:
 Type (sine \, triangular \, sawtooth \, square). Frequency Value \,
 Amplitude Value. Output: The signal.;
-#X obj 183 160 vradio 20 0 0 4 vradio-help-snd_\$0 vradio-help-rcv_\$0
-signal\ type 30 40 0 10 -4032 -86277 -1 1;
+#X obj 183 160 vradio 20 1 0 4 vradio-help-snd_\$0 vradio-help-rcv_\$0
+signal 0 -8 0 10 -4032 -1 -1 0;
 #X obj 520 190 phasor~;
 #X obj 654 189 pd-tutorial-patches/square, f 14;
 #X obj 132 274 hsl 128 15 50 300 0 0 freq_snd_\$0 freq_rcv_\$0 empty
--2 -8 0 10 -262144 -1 -1 10005 1;
-#X floatatom 520 149 5 0 0 0 - - -, f 5;
+-2 -8 0 10 -262144 -1 -1 0 1;
+#X floatatom 520 149 5 0 0 0 - - -;
 #N canvas 0 22 450 300 (subpatch) 0;
-#X array wav_gen_out_\$0 1000 float 1 black black;
+#X array wav_gen_out_\$0 1000 float 1;
 #A 0 -0.145759 -0.140468 -0.135024 -0.129432 -0.123696 -0.117823 -0.111821
 -0.105697 -0.0994537 -0.0931022 -0.0866491 -0.0800985 -0.07346 -0.0667415
 -0.0599489 -0.0530895 -0.0461723 -0.0392047 -0.0321926 -0.0251455 -0.018071
@@ -153,7 +153,7 @@ signal\ type 30 40 0 10 -4032 -86277 -1 1;
 0.181427;
 #X coords 0 1 999 -1 200 140 1;
 #X restore 99 367 graph;
-#X obj 733 408 metro 100;
+#X obj 822 407 metro 100;
 #X obj 589 190 osc~;
 #X obj 531 237 expr if ($f1 == 0 \, 1 \, 0), f 9;
 #X obj 602 237 expr if ($f1 == 1 \, 1 \, 0), f 9;
@@ -169,34 +169,35 @@ signal\ type 30 40 0 10 -4032 -86277 -1 1;
 #X obj 677 328 *~;
 #X obj 751 327 *~;
 #X obj 131 312 hsl 128 15 0 100 0 0 amp_snd_\$0 amp_rcv_\$0 empty -2
--8 0 10 -262144 -1 -1 11000 1;
+-8 0 10 -262144 -1 -1 0 1;
 #X text 110 294 Amplitude;
 #X text 109 255 Frequency;
 #X obj 594 474 *~;
-#X floatatom 658 445 5 0 0 0 - - -, f 5;
-#X obj 658 470 dbtorms;
-#X floatatom 368 251 5 0 0 0 - - -, f 5;
+#X floatatom 726 404 5 0 0 0 - - -;
+#X obj 726 429 dbtorms;
+#X floatatom 368 251 5 0 0 0 - - -;
 #X obj 251 156 tgl 15 0 on_off_snd_\$0 empty ON/OFF 17 7 0 10 -262144
--1 -1 1 1;
-#X obj 528 527 *~;
-#X floatatom 449 515 5 0 0 0 - - -, f 5;
-#X obj 528 566 outlet~;
-#X obj 735 542 tabwrite~ wav_gen_out_\$0;
-#X obj 732 378 r on_off_snd_\$0;
-#X obj 486 486 r on_off_snd_\$0;
+-1 -1 0 1;
+#X obj 520 571 *~;
+#X floatatom 441 559 5 0 0 0 - - -;
+#X obj 520 610 outlet~;
+#X obj 824 541 tabwrite~ wav_gen_out_\$0;
+#X obj 821 377 r on_off_snd_\$0;
+#X obj 478 530 r on_off_snd_\$0;
 #X obj 322 535 inlet;
 #X obj 151 533 inlet;
-#X floatatom 278 274 5 0 0 0 - - -, f 5;
-#X floatatom 277 309 5 0 0 0 - - -, f 5;
+#X floatatom 278 274 5 0 0 0 - - -;
+#X floatatom 277 309 5 0 0 0 - - -;
 #X obj 368 219 r vradio-help-snd_\$0;
 #X obj 151 569 s freq_rcv_\$0;
 #X obj 322 571 s amp_rcv_\$0;
-#X obj 658 419 r amp_snd_\$0;
+#X obj 726 378 r amp_snd_\$0;
 #X obj 520 116 r freq_snd_\$0;
 #X obj 369 151 s vradio-help-rcv_\$0;
 #X obj 369 97 loadbang;
 #X msg 369 122 1;
 #X text 431 95 Initialized to sine;
+#X obj 726 459 line~;
 #X connect 3 0 20 0;
 #X connect 4 0 21 0;
 #X connect 5 0 39 0;
@@ -219,7 +220,7 @@ signal\ type 30 40 0 10 -4032 -86277 -1 1;
 #X connect 26 0 31 1;
 #X connect 26 0 34 0;
 #X connect 27 0 28 0;
-#X connect 28 0 26 1;
+#X connect 28 0 50 0;
 #X connect 31 0 33 0;
 #X connect 35 0 8 0;
 #X connect 36 0 31 0;
@@ -235,4 +236,5 @@ signal\ type 30 40 0 10 -4032 -86277 -1 1;
 #X connect 45 0 6 0;
 #X connect 47 0 48 0;
 #X connect 48 0 46 0;
+#X connect 50 0 26 1;
 #X coords 0 -1 1 1 230 190 1 104 141;

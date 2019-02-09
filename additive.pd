@@ -1,0 +1,49 @@
+#N canvas 120 28 1086 597 10;
+#X obj 49 18 inlet~;
+#X obj 101 18 inlet~;
+#X obj 156 17 inlet~;
+#X obj 211 17 inlet~;
+#N canvas 0 23 450 300 (subpatch) 0;
+#X array mix_\$0 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 322 230 graph;
+#X obj 324 404 hsl 128 15 0 100 0 0 ovr_amp_snd empty empty -2 -8 0
+10 -262144 -1 -1 10160 1;
+#X text 323 381 Overall Amplitude;
+#X floatatom 482 403 5 0 0 0 - - -;
+#X obj 80 68 +~;
+#X obj 116 69 +~;
+#X obj 101 105 +~;
+#X obj 101 193 outlet~;
+#X obj 101 157 *~;
+#X obj 146 131 dbtorms;
+#X obj 146 88 r ovr_amp_snd;
+#X floatatom 146 109 5 0 0 0 - - -;
+#X obj 41 240 metro 100;
+#X obj 302 209 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 234 344 loadbang;
+#X msg 234 373 80;
+#X obj 41 271 tabwrite~ mix_\$0;
+#X connect 0 0 8 0;
+#X connect 1 0 8 1;
+#X connect 2 0 9 0;
+#X connect 3 0 9 1;
+#X connect 5 0 7 0;
+#X connect 8 0 10 0;
+#X connect 9 0 10 1;
+#X connect 10 0 12 0;
+#X connect 12 0 11 0;
+#X connect 12 0 20 0;
+#X connect 13 0 12 1;
+#X connect 14 0 15 0;
+#X connect 15 0 13 0;
+#X connect 16 0 20 0;
+#X connect 17 0 16 0;
+#X connect 18 0 19 0;
+#X connect 19 0 5 0;
+#X coords 0 -1 1 1 250 250 1 290 200;
