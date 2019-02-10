@@ -1,12 +1,14 @@
-#N canvas 145 159 1221 715 10;
-#X obj 353 203 additive;
-#X obj 115 -43 wave_gen;
-#X obj 368 -44 wave_gen;
-#X obj 625 -43 wave_gen;
-#X obj 429 672 dac~;
-#X obj 429 498 ADSR;
-#X obj 676 462 hsl 128 15 1000 3000 0 0 empty empty note_length -2
--8 0 10 -262144 -1 -1 3500 1;
+#N canvas -83 23 1221 715 10;
+#X obj 627 409 additive;
+#X obj 390 183 wave_gen;
+#X obj 641 184 wave_gen;
+#X obj 897 184 wave_gen;
+#X obj 703 878 dac~;
+#X obj 703 704 ADSR;
+#X obj 950 668 hsl 128 15 1000 3000 0 0 empty empty note_length -2
+-8 0 10 -262144 -1 -1 0 1;
+#X obj 389 11 midi_2_freq_ampl;
+#X obj 389 131 7th_chord_gen;
 #X connect 0 0 5 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
@@ -14,3 +16,7 @@
 #X connect 5 0 4 0;
 #X connect 5 0 4 1;
 #X connect 6 0 5 1;
+#X connect 7 0 8 0;
+#X connect 8 0 1 0;
+#X connect 8 1 2 0;
+#X connect 8 1 3 0;
