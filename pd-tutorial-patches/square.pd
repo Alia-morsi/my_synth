@@ -1,68 +1,59 @@
-#N canvas 457 104 677 614 12;
+#N canvas 301 104 876 614 12;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array squ_arr1_\$0 100 float 0;
 #X coords 0 1 99 -1 200 140 1;
-#X restore 401 68 graph;
-#X text 381 196 -1;
-#X text 387 57 1;
+#X restore 473 53 graph;
+#X text 453 181 -1;
+#X text 459 42 1;
 #X floatatom 61 87 5 0 0 0 - - -;
 #X obj 116 116 * -1;
-#X msg 149 92 0;
 #X obj 60 193 phasor~;
-#X obj 169 251 phasor~;
-#X obj 96 427 *~ 0.7;
-#X msg 189 82 0.5;
-#X obj 96 304 -~ 1;
-#X obj 95 277 +~;
+#X obj 165 265 phasor~;
+#X obj 93 476 *~ 0.7;
+#X obj 93 353 -~ 1;
+#X obj 92 326 +~;
 #X text 76 12 3.5.1.1. square;
-#X text 95 42 any fundamental;
-#X text 146 51 phase synchronization;
+#X text 77 47 any fundamental;
 #X text 394 490 www.pd-tutorial.com;
 #X text 394 465 Johannes Kreidler;
 #X obj 27 47 inlet;
 #X text 340 365 dac removed \, inlets and outlets added;
-#X obj 96 469 outlet~;
-#X obj 180 63 tgl 15 1 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 146 407 tabwrite~ squ_arr1_\$0;
-#X obj 161 335 loadbang;
-#X obj 161 363 metro 100;
-#X obj 341 46 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 3500 1;
-#X floatatom 289 99 5 0 0 0 - - -;
-#X obj 250 71 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X obj 93 518 outlet~;
+#X obj 143 456 tabwrite~ squ_arr1_\$0;
+#X obj 158 384 loadbang;
+#X obj 158 412 metro 100;
+#X obj 351 57 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 301 34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X msg 221 103 0;
-#X obj 189 153 spigot 0;
-#X obj 290 167 spigot 0;
-#X msg 257 117 1;
-#X floatatom 185 191 5 0 0 0 - - -;
-#X floatatom 296 206 5 0 0 0 - - -;
-#X obj 342 119 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
+#X msg 193 153 0;
+#X floatatom 295 315 5 0 0 0 - - -;
+#X floatatom 312 191 5 0 0 0 - - -;
+#X text 460 255 To have some form of wave consistency (meaning that
+the same values for phase would give the same timbre) \, a bang needs
+to be sent from the numeric slider to the 0 msg to the first phasor
+;
+#X obj 274 134 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 369 65 Phase;
+#X obj 352 14 inlet;
 #X connect 3 0 4 0;
-#X connect 3 0 6 0;
-#X connect 4 0 7 0;
-#X connect 6 0 11 0;
-#X connect 7 0 11 1;
-#X connect 8 0 19 0;
-#X connect 10 0 8 0;
-#X connect 10 0 21 0;
-#X connect 11 0 10 0;
-#X connect 17 0 3 0;
-#X connect 20 0 5 0;
-#X connect 20 0 9 0;
-#X connect 22 0 23 0;
-#X connect 23 0 21 0;
-#X connect 24 0 25 0;
-#X connect 25 0 29 0;
-#X connect 26 0 27 0;
-#X connect 26 0 25 0;
-#X connect 26 0 30 0;
-#X connect 27 0 28 0;
-#X connect 28 0 6 1;
-#X connect 28 0 31 0;
-#X connect 29 0 7 1;
-#X connect 29 0 32 0;
-#X connect 33 0 29 1;
-#X connect 33 0 28 1;
+#X connect 3 0 5 0;
+#X connect 4 0 6 0;
+#X connect 5 0 9 0;
+#X connect 6 0 9 1;
+#X connect 7 0 16 0;
+#X connect 8 0 7 0;
+#X connect 8 0 17 0;
+#X connect 9 0 8 0;
+#X connect 14 0 3 0;
+#X connect 18 0 19 0;
+#X connect 19 0 17 0;
+#X connect 20 0 24 0;
+#X connect 20 0 26 0;
+#X connect 21 0 22 0;
+#X connect 21 0 20 0;
+#X connect 22 0 5 1;
+#X connect 24 0 6 1;
+#X connect 26 0 22 0;
+#X connect 28 0 20 0;
