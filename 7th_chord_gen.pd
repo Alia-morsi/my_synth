@@ -13,17 +13,12 @@
 you can have as many necessary values in this list depending on your
 chord selections;
 #X obj 501 262 table ratios;
-#X msg 499 206 \; ratios 1 1.06667 1.123 1.2 1.25 1.3333 1.40625 1.5
-1.6 1.66667 1.8 1.875;
 #X obj 499 175 loadbang;
 #X obj 155 134 tabread ratios;
 #X obj 253 134 tabread ratios;
 #X obj 353 134 tabread ratios;
 #X text 497 190 Remember: ratios table is 0 indexed \, but the input
 is not;
-#X obj 155 104 -1;
-#X obj 252 104 -1;
-#X obj 346 102 -1;
 #X obj 133 52 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 144 76 5;
@@ -33,23 +28,21 @@ is not;
 #X obj 192 197 *;
 #X obj 283 197 *;
 #X obj 377 197 *;
-#X connect 0 0 21 0;
-#X connect 0 0 26 1;
-#X connect 0 0 27 1;
-#X connect 0 0 28 1;
-#X connect 13 0 12 0;
-#X connect 14 0 26 0;
-#X connect 15 0 27 0;
-#X connect 16 0 28 0;
-#X connect 18 0 14 0;
-#X connect 19 0 15 0;
-#X connect 20 0 16 0;
-#X connect 21 0 22 0;
-#X connect 21 0 23 0;
-#X connect 21 0 24 0;
-#X connect 22 0 18 0;
-#X connect 23 0 19 0;
-#X connect 24 0 20 0;
-#X connect 26 0 7 0;
-#X connect 27 0 8 0;
-#X connect 28 0 9 0;
+#X msg 499 206 \; ratios 1 1 1.06667 1.123 1.2 1.25 1.3333 1.40625
+1.5 1.6 1.66667 1.8 1.875;
+#X connect 0 0 17 0;
+#X connect 0 0 22 1;
+#X connect 0 0 23 1;
+#X connect 0 0 24 1;
+#X connect 12 0 25 0;
+#X connect 13 0 22 0;
+#X connect 14 0 23 0;
+#X connect 15 0 24 0;
+#X connect 17 0 18 0;
+#X connect 17 0 19 0;
+#X connect 17 0 20 0;
+#X connect 19 0 14 0;
+#X connect 20 0 15 0;
+#X connect 22 0 7 0;
+#X connect 23 0 8 0;
+#X connect 24 0 9 0;
