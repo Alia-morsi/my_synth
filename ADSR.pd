@@ -1,4 +1,4 @@
-#N canvas 114 39 996 655 10;
+#N canvas 137 83 996 655 10;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array adsr_arr_\$0 100 float 1;
 #A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
@@ -42,6 +42,10 @@ are sending a one to the other;
 #X floatatom 230 450 5 0 0 0 - - -;
 #X obj 261 490 *~;
 #X floatatom 33 317 5 0 0 0 - - -;
+#X text 53 14 A bug here is that if the envelope button is clicked
+before the decay begins \, it starts behaving incorrectly This suggests
+that we should make the decay a given parameter t make sure the controller
+honors this input value;
 #X connect 4 0 18 0;
 #X connect 7 0 9 0;
 #X connect 9 0 14 0;
