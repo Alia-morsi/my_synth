@@ -1,4 +1,4 @@
-#N canvas 24 23 1256 715 10;
+#N canvas 247 23 1256 715 10;
 #X obj 576 608 additive;
 #X obj 505 341 wave_gen;
 #X obj 756 342 wave_gen;
@@ -13,7 +13,7 @@
 #X obj 129 181 midi_2_freq_ampl;
 #X msg 120 379 1;
 #X obj 120 408 print x1;
-#X obj 68 19 connections/local_receiver;
+#X obj 55 19 connections/local_receiver;
 #X text 249 15 This one needs to be in the outermost patch as it will
 receive messages from all the phones;
 #X obj 114 131 print x2;
@@ -21,6 +21,7 @@ receive messages from all the phones;
 #X obj 191 45 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 38 94 connections/prefix_spigot_synth;
+#X obj 61 54 print x2;
 #X connect 0 0 5 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
@@ -36,6 +37,7 @@ receive messages from all the phones;
 #X connect 10 0 9 0;
 #X connect 11 0 12 0;
 #X connect 13 0 17 0;
+#X connect 13 0 19 0;
 #X connect 13 0 18 0;
 #X connect 17 0 16 0;
 #X connect 18 0 15 0;
