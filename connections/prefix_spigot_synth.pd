@@ -4,6 +4,8 @@
 #X obj 108 49 inlet;
 #X text 14 49 The msg itself;
 #X obj 134 158 outlet;
-#X obj 134 88 route /synth_midi_1;
-#X connect 2 0 5 0;
+#X obj 134 117 route /synth_midi_1;
+#X obj 120 78 list trim;
+#X connect 2 0 6 0;
 #X connect 5 0 4 0;
+#X connect 6 0 5 0;
