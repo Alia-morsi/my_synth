@@ -1,0 +1,102 @@
+#N canvas 187 54 812 617 10;
+#X obj 315 89 inlet~;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array old_wave_\$0 100 float 1;
+#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0.0714286 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+0 0 0 0 0;
+#X coords 0 1 99 -1 200 140 1;
+#X restore 24 89 graph;
+#X text 317 72 wave;
+#X obj 281 36 inlet;
+#X text 142 34 bang for shape change;
+#X obj 362 91 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 362 167 tabwrite~ old_wave;
+#X obj 352 39 loadbang;
+#X obj 362 67 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 362 132 metro 100;
+#X obj 393 525 outlet~;
+#X obj 379 429 abs;
+#X obj 409 265 line~;
+#X msg 330 247 1 100;
+#X obj 379 401 - 1;
+#X obj 422 345 snapshot~;
+#X floatatom 397 369 0 0 0 0 - - -;
+#X obj 443 318 metro 100;
+#X text 28 391 when shape is changing old_wave should not be written
+to as it will be used for interpolation;
+#X floatatom 394 459 5 0 0 0 - - -;
+#X obj 358 459 *~;
+#X obj 437 458 *~;
+#X obj 393 493 +~;
+#X text 573 211 That's instead of the slider of interpolation ratio.
+;
+#X text 574 101 The input wave should always be written to old wave
+except during a shape change. So \, toggle should start as 1 \, and
+changes to 0 only until the ramp ends;
+#X text 573 173 The number object connected to line~ should be 1;
+#X floatatom 453 422 5 0 0 0 - - -;
+#X obj 506 192 loadbang;
+#X msg 505 388 1;
+#X obj 505 363 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 438 227 1;
+#X msg 311 183 0;
+#X obj 323 218 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 225 235 hopefully this bang trick would make the 0 reach line~
+first;
+#X obj 453 265 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 549 451 When the shape finishes changing that is sent to the
+toggle button at the top such that it is selected again..;
+#X msg 469 227 0;
+#X msg 395 216 stop;
+#X obj 447 57 r finished_ramp_\$0;
+#X obj 479 452 sel 1;
+#X obj 479 479 bng 15 250 50 0 finished_ramp_\$0 empty empty 17 7 0
+10 -262144 -1 -1;
+#X obj 437 382 change 1;
+#X obj 244 369 tabreceive~ old_wave_\$0;
+#X connect 0 0 6 0;
+#X connect 0 0 21 0;
+#X connect 3 0 8 0;
+#X connect 3 0 31 0;
+#X connect 5 0 9 0;
+#X connect 7 0 8 0;
+#X connect 8 0 5 0;
+#X connect 9 0 6 0;
+#X connect 11 0 19 0;
+#X connect 11 0 20 1;
+#X connect 12 0 15 0;
+#X connect 13 0 12 0;
+#X connect 14 0 11 0;
+#X connect 15 0 16 0;
+#X connect 15 0 41 0;
+#X connect 16 0 14 0;
+#X connect 17 0 15 0;
+#X connect 20 0 22 0;
+#X connect 21 0 22 1;
+#X connect 22 0 10 0;
+#X connect 26 0 21 1;
+#X connect 26 0 39 0;
+#X connect 27 0 29 0;
+#X connect 27 0 30 0;
+#X connect 27 0 36 0;
+#X connect 28 0 26 0;
+#X connect 29 0 28 0;
+#X connect 30 0 12 1;
+#X connect 31 0 12 1;
+#X connect 31 0 32 0;
+#X connect 32 0 13 0;
+#X connect 34 0 17 0;
+#X connect 36 0 34 0;
+#X connect 37 0 12 0;
+#X connect 38 0 5 0;
+#X connect 38 0 37 0;
+#X connect 39 0 40 0;
+#X connect 41 0 26 0;
+#X connect 42 0 20 0;

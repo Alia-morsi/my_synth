@@ -1,4 +1,4 @@
-#N canvas 332 48 1256 715 10;
+#N canvas 24 23 1256 715 10;
 #X obj 576 608 additive;
 #X obj 505 341 wave_gen;
 #X obj 756 342 wave_gen;
