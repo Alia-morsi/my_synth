@@ -1,0 +1,9 @@
+#N canvas 500 322 548 300 10;
+#X obj 193 51 inlet;
+#X text 238 46 Needs the prefix that relates to each patch;
+#X obj 108 49 inlet;
+#X text 14 49 The msg itself;
+#X obj 134 158 outlet;
+#X obj 134 88 route /synth_midi_1;
+#X connect 2 0 5 0;
+#X connect 5 0 4 0;

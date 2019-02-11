@@ -1,20 +1,26 @@
-#N canvas 311 23 1256 715 10;
-#X obj 551 530 additive;
-#X obj 480 263 wave_gen;
-#X obj 731 264 wave_gen;
-#X obj 987 264 wave_gen;
+#N canvas 332 48 1256 715 10;
+#X obj 576 608 additive;
+#X obj 505 341 wave_gen;
+#X obj 756 342 wave_gen;
+#X obj 1012 342 wave_gen;
 #X obj 703 878 dac~;
-#X obj 703 704 ADSR;
-#X obj 950 668 hsl 128 15 1000 3000 0 0 empty empty note_length -2
+#X obj 728 782 ADSR;
+#X obj 975 746 hsl 128 15 1000 3000 0 0 empty empty note_length -2
 -8 0 10 -262144 -1 -1 0 1;
-#X obj 479 103 midi_2_freq_ampl;
-#X obj 479 211 7th_chord_gen;
-#X obj 220 271 wave_gen;
-#X obj 104 103 midi_2_freq_ampl;
-#X msg 95 301 1;
-#X obj 95 330 print x1;
-#X obj 165 41 connections/local_receiver;
-#X obj 185 71 print x2;
+#X obj 504 181 midi_2_freq_ampl;
+#X obj 504 289 7th_chord_gen;
+#X obj 245 349 wave_gen;
+#X obj 129 181 midi_2_freq_ampl;
+#X msg 120 379 1;
+#X obj 120 408 print x1;
+#X obj 68 19 connections/local_receiver;
+#X text 249 15 This one needs to be in the outermost patch as it will
+receive messages from all the phones;
+#X obj 114 131 print x2;
+#X msg 200 73 /valueToNetwork;
+#X obj 191 45 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 38 94 connections/prefix_spigot_synth;
 #X connect 0 0 5 0;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
@@ -29,4 +35,9 @@
 #X connect 9 0 0 3;
 #X connect 10 0 9 0;
 #X connect 11 0 12 0;
-#X connect 13 0 14 0;
+#X connect 13 0 17 0;
+#X connect 13 0 18 0;
+#X connect 17 0 16 0;
+#X connect 18 0 15 0;
+#X connect 18 0 10 0;
+#X connect 18 0 7 0;
