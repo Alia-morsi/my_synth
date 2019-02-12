@@ -9,7 +9,6 @@
 #X obj 116 116 * -1;
 #X obj 60 193 phasor~;
 #X obj 165 265 phasor~;
-#X obj 93 476 *~ 0.7;
 #X obj 93 353 -~ 1;
 #X obj 92 326 +~;
 #X text 76 12 3.5.1.1. square;
@@ -23,7 +22,7 @@
 #X obj 158 384 loadbang;
 #X obj 158 412 metro 100;
 #X obj 351 57 vsl 15 50 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 1300 1;
+-1 -1 2450 1;
 #X obj 301 34 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X msg 193 153 0;
@@ -43,21 +42,20 @@ to be sent from the numeric slider to the 0 msg to the first phasor
 #X connect 3 0 4 0;
 #X connect 3 0 5 0;
 #X connect 4 0 6 0;
-#X connect 5 0 9 0;
-#X connect 6 0 9 1;
+#X connect 5 0 8 0;
+#X connect 6 0 8 1;
 #X connect 7 0 16 0;
+#X connect 7 0 15 0;
 #X connect 8 0 7 0;
-#X connect 8 0 17 0;
-#X connect 9 0 8 0;
-#X connect 14 0 3 0;
-#X connect 18 0 19 0;
-#X connect 19 0 17 0;
-#X connect 20 0 24 0;
-#X connect 20 0 26 0;
-#X connect 21 0 22 0;
-#X connect 21 0 20 0;
-#X connect 22 0 5 1;
-#X connect 24 0 6 1;
-#X connect 26 0 22 0;
-#X connect 29 0 30 0;
-#X connect 30 0 20 0;
+#X connect 13 0 3 0;
+#X connect 17 0 18 0;
+#X connect 18 0 16 0;
+#X connect 19 0 23 0;
+#X connect 19 0 25 0;
+#X connect 20 0 21 0;
+#X connect 20 0 19 0;
+#X connect 21 0 5 1;
+#X connect 23 0 6 1;
+#X connect 25 0 21 0;
+#X connect 28 0 29 0;
+#X connect 29 0 19 0;

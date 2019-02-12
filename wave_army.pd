@@ -1,18 +1,16 @@
-#N canvas 247 23 1256 715 10;
+#N canvas 63 40 1232 715 10;
 #X obj 576 608 additive;
 #X obj 505 341 wave_gen;
 #X obj 756 342 wave_gen;
 #X obj 1012 342 wave_gen;
-#X obj 703 878 dac~;
-#X obj 728 782 ADSR;
-#X obj 975 746 hsl 128 15 1000 3000 0 0 empty empty note_length -2
+#X obj 890 992 dac~;
+#X obj 889 658 ADSR;
+#X obj 1161 903 hsl 128 15 1000 3000 0 0 empty empty note_length -2
 -8 0 10 -262144 -1 -1 0 1;
-#X obj 504 181 midi_2_freq_ampl;
+#X obj 506 178 midi_2_freq_ampl;
 #X obj 504 289 7th_chord_gen;
-#X obj 245 349 wave_gen;
+#X obj 245 343 wave_gen;
 #X obj 129 181 midi_2_freq_ampl;
-#X msg 120 379 1;
-#X obj 120 408 print x1;
 #X obj 55 19 connections/local_receiver;
 #X text 249 15 This one needs to be in the outermost patch as it will
 receive messages from all the phones;
@@ -35,11 +33,11 @@ receive messages from all the phones;
 #X connect 8 2 3 0;
 #X connect 9 0 0 3;
 #X connect 10 0 9 0;
-#X connect 11 0 12 0;
-#X connect 13 0 17 0;
-#X connect 13 0 19 0;
-#X connect 13 0 18 0;
-#X connect 17 0 16 0;
-#X connect 18 0 15 0;
-#X connect 18 0 10 0;
-#X connect 18 0 7 0;
+#X connect 11 0 15 0;
+#X connect 11 0 17 0;
+#X connect 11 0 16 0;
+#X connect 15 0 14 0;
+#X connect 16 0 13 0;
+#X connect 16 0 7 0;
+#X connect 16 0 10 0;
+#X coords 0 -1 1 1 1300 700 1 100 150;

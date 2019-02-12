@@ -1,4 +1,4 @@
-#N canvas 326 49 855 417 10;
+#N canvas 425 241 855 417 10;
 #X obj 102 22 inlet;
 #X text 168 29 Frequency;
 #X obj 272 28 inlet;
@@ -14,9 +14,9 @@ you can have as many necessary values in this list depending on your
 chord selections;
 #X obj 501 262 table ratios;
 #X obj 499 175 loadbang;
-#X obj 155 134 tabread ratios;
-#X obj 253 134 tabread ratios;
-#X obj 353 134 tabread ratios;
+#X obj 172 133 tabread ratios;
+#X obj 275 134 tabread ratios;
+#X obj 385 134 tabread ratios;
 #X text 497 190 Remember: ratios table is 0 indexed \, but the input
 is not;
 #X obj 133 52 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
@@ -31,13 +31,13 @@ is not;
 #X msg 499 206 \; ratios 1 1 1.06667 1.123 1.2 1.25 1.3333 1.40625
 1.5 1.6 1.66667 1.8 1.875;
 #X connect 0 0 17 0;
-#X connect 0 0 22 1;
-#X connect 0 0 23 1;
-#X connect 0 0 24 1;
+#X connect 0 0 22 0;
+#X connect 0 0 23 0;
+#X connect 0 0 24 0;
 #X connect 12 0 25 0;
-#X connect 13 0 22 0;
-#X connect 14 0 23 0;
-#X connect 15 0 24 0;
+#X connect 13 0 22 1;
+#X connect 14 0 23 1;
+#X connect 15 0 24 1;
 #X connect 17 0 18 0;
 #X connect 17 0 19 0;
 #X connect 17 0 20 0;

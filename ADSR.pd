@@ -1,14 +1,25 @@
-#N canvas 137 83 996 655 10;
+#N canvas 166 83 967 655 10;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array adsr_arr_\$0 100 float 1;
-#A 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-0;
+#A 0 0.0171522 0.0179305 0.0187068 0.0194799 0.0202489 0.0210126 0.02177
+0.0225202 0.0232621 0.023995 0.0247178 0.0254297 0.0261299 0.0268177
+0.0274924 0.0281534 0.0287999 0.0294315 0.0300477 0.030648 0.0312322
+0.0317997 0.0323505 0.0328843 0.0329322 0.0325532 0.032157 0.0317435
+0.031313 0.0308654 0.0445138 0.044033 0.043536 0.0430233 0.0424951
+0.0419519 0.0413944 0.040823 0.0402381 0.0396407 0.0390313 0.0384103
+0.0377788 0.0371375 0.036487 0.0358282 0.0351619 0.0344888 0.0338099
+0.0331259 0.0324378 0.0317462 0.0310521 0.0303564 0.0296597 0.028963
+0.0282672 0.0275729 0.0268808 0.0261919 0.0255068 0.0248262 0.0241508
+0.0234813 0.0228182 0.0221622 0.0215138 0.0208735 0.0202418 0.0196191
+0.0190059 0.0184026 0.0178094 0.0172266 0.0166546 0.0160934 0.0155433
+0.0150044 0.0144768 0.0139606 0.0134557 0.0129622 0.01248 0.0120089
+0.0115489 0.0110998 0.0106615 0.0102336 0.00981602 0.00940838 0.00901037
+0.00862185 0.0082423 0.00787131 0.00750871 0.00715398 0.00680664 0.0064664
+0.00613282 0.00580536;
 #X coords 0 1 99 -1 140 60 1 0 0;
 #X restore 115 117 graph;
 #X obj 70 189 vradio 15 0 0 2 type_snd_\$0 type_rcv_\$0 empty 0 -8
-0 10 -262144 -1 -1 1;
+0 10 -262144 -1 -1 0;
 #X text 93 188 Drone;
 #X text 92 205 Envelope;
 #X obj 87 266 r type_snd_\$0;
@@ -21,7 +32,7 @@
 #X obj 162 206 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 338 270 delay 1000;
-#X obj 394 182 inlet;
+#X obj 399 198 inlet;
 #X floatatom 206 206 5 0 0 2 note_length - -;
 #X obj 301 379 else/adsr~ 1000 500 0.5 1500, f 37;
 #X obj 222 391 inlet~;
@@ -35,7 +46,7 @@
 #X text 320 432 This entangled part is to send a 0 to one path as we
 are sending a one to the other;
 #X obj 390 96 s type_rcv_\$0;
-#X obj 390 65 loadbang;
+#X obj 390 48 loadbang;
 #X obj 308 559 metro 100;
 #X obj 307 524 loadbang;
 #X floatatom 159 451 5 0 0 0 - - -;
@@ -46,6 +57,12 @@ are sending a one to the other;
 before the decay begins \, it starts behaving incorrectly This suggests
 that we should make the decay a given parameter t make sure the controller
 honors this input value;
+#X msg 391 73 0;
+#X obj 19 88 inlet;
+#X text -8 74 drone or envelope;
+#X obj 27 155 inlet;
+#X text 424 131 button;
+#X obj 19 121 s type_rcv_\$0;
 #X connect 4 0 18 0;
 #X connect 7 0 9 0;
 #X connect 9 0 14 0;
@@ -68,11 +85,14 @@ honors this input value;
 #X connect 20 0 29 0;
 #X connect 21 0 29 0;
 #X connect 22 0 28 0;
-#X connect 25 0 24 0;
+#X connect 25 0 33 0;
 #X connect 26 0 5 0;
 #X connect 27 0 26 0;
 #X connect 28 0 17 1;
 #X connect 29 0 30 1;
 #X connect 30 0 5 0;
 #X connect 30 0 6 0;
+#X connect 33 0 24 0;
+#X connect 34 0 38 0;
+#X connect 36 0 10 0;
 #X coords 0 -1 1 1 217 130 1 60 100;
