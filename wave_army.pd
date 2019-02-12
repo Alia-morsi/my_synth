@@ -1,4 +1,4 @@
-#N canvas 48 23 1232 715 10;
+#N canvas 160 90 1280 715 10;
 #X obj 576 608 additive;
 #X obj 505 341 wave_gen;
 #X obj 756 342 wave_gen;
@@ -8,25 +8,33 @@
 #X obj 1141 917 hsl 128 15 1000 3000 0 0 empty empty note_length -2
 -8 0 10 -262144 -1 -1 0 1;
 #X obj 506 178 midi_2_freq_ampl;
-#X obj 504 289 7th_chord_gen;
+#X obj 522 289 7th_chord_gen;
 #X obj 245 343 wave_gen;
 #X obj 129 181 midi_2_freq_ampl;
 #X obj 55 19 connections/local_receiver;
 #X text 249 15 This one needs to be in the outermost patch as it will
 receive messages from all the phones;
 #X obj 114 131 print x2;
-#X msg 200 73 /valueToNetwork;
-#X obj 191 45 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+#X msg 161 63 /valueToNetwork;
+#X obj 159 41 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
-#X obj 38 94 connections/prefix_spigot_synth;
-#X obj 61 54 print x2;
-#X text 359 79 have a 1 0 numeric input: Drone vs envelope.;
-#X floatatom 425 102 5 0 0 0 - - drone_envelope_mobile_#0;
+#X obj 53 98 connections/prefix_spigot_synth;
+#X obj 60 50 print x2;
+#X floatatom 555 118 5 0 0 0 - - drone_envelope_mobile_#0;
 #X obj 716 890 r drone_envelope_mobile_\$0;
-#X obj 648 99 bng 15 250 50 0 bang_for_envelope_\$0 empty empty 17
+#X obj 622 116 bng 15 250 50 0 bang_for_envelope_\$0 empty empty 17
 7 0 10 -262144 -1 -1;
-#X text 667 97 bang for envelope;
+#X text 642 115 bang for envelope;
 #X obj 954 889 r bang_for_envelope_\$0;
+#X text 723 16 Note that since the network messages will be on the
+main patch \, then there will have to be inlets here to receive them
+from outside;
+#X text 129 376 So the wave gen that is used for the 5th will be also
+used to play;
+#X text 460 118 Drone 0 env 1;
+#X obj 209 127 print x3;
+#X obj 278 127 print x4;
+#X floatatom 79 133 5 0 0 0 - - -;
 #X connect 0 0 5 2;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
@@ -35,8 +43,9 @@ receive messages from all the phones;
 #X connect 5 0 4 1;
 #X connect 6 0 5 3;
 #X connect 7 0 8 0;
-#X connect 8 0 1 0;
-#X connect 8 1 2 0;
+#X connect 7 0 1 0;
+#X connect 8 0 2 0;
+#X connect 8 1 9 0;
 #X connect 8 2 3 0;
 #X connect 9 0 0 3;
 #X connect 10 0 9 0;
@@ -44,9 +53,12 @@ receive messages from all the phones;
 #X connect 11 0 17 0;
 #X connect 11 0 16 0;
 #X connect 15 0 14 0;
-#X connect 16 0 13 0;
-#X connect 16 0 7 0;
-#X connect 16 0 10 0;
-#X connect 20 0 5 0;
-#X connect 23 0 5 1;
+#X connect 16 0 28 0;
+#X connect 16 1 13 0;
+#X connect 16 1 7 0;
+#X connect 16 2 26 0;
+#X connect 16 3 27 0;
+#X connect 19 0 5 0;
+#X connect 22 0 5 1;
+#X connect 28 0 10 0;
 #X coords 0 -1 1 1 1300 700 1 100 150;

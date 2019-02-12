@@ -1,9 +1,9 @@
-#N canvas 252 235 782 300 10;
+#N canvas 515 260 782 366 10;
 #X obj 343 54 inlet;
 #X text 388 49 Needs the prefix that relates to each patch;
 #X obj 258 52 inlet;
 #X text 164 52 The msg itself;
-#X obj 220 251 outlet;
+#X obj 220 297 outlet;
 #X obj 211 172 route /synth_midi_1;
 #X obj 270 81 list trim;
 #X obj 577 133 route /synth;
@@ -11,25 +11,35 @@
 #X obj 31 120 route /synth_chord_or_melody;
 #X obj 390 170 outlet;
 #X obj 577 167 outlet;
-#X obj 108 253 outlet;
-#X text 96 274 first MIDI;
-#X text 204 271 second MIDI;
+#X obj 108 294 outlet;
+#X text 96 315 first MIDI;
+#X text 204 317 second MIDI;
 #X text 19 21 if chord \, pass to 2nd midi if melody pass to first
 midi;
 #X text 74 136 chord 1: melody 0;
-#X obj 74 176 select 0 1;
-#X obj 108 220 spigot;
-#X obj 197 219 spigot;
+#X obj 75 174 select 0 1;
+#X obj 108 273 spigot;
+#X obj 197 265 spigot;
 #X text 301 216 can output either /envelope or /env_drone;
+#X obj 94 223 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 151 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 191 216 5 0 0 0 - - -;
 #X connect 2 0 6 0;
-#X connect 5 0 19 0;
-#X connect 5 0 18 0;
+#X connect 5 0 23 0;
 #X connect 6 0 5 0;
 #X connect 6 0 9 0;
 #X connect 7 0 11 0;
 #X connect 8 0 10 0;
 #X connect 9 0 17 0;
-#X connect 17 0 18 1;
-#X connect 17 1 19 1;
+#X connect 17 0 21 0;
+#X connect 17 1 22 0;
 #X connect 18 0 12 0;
 #X connect 19 0 4 0;
+#X connect 21 0 18 1;
+#X connect 21 0 23 0;
+#X connect 22 0 19 0;
+#X connect 22 0 23 0;
+#X connect 23 0 19 0;
+#X connect 23 0 18 0;

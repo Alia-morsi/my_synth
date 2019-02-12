@@ -1,4 +1,4 @@
-#N canvas 416 50 1190 659 10;
+#N canvas 90 50 1190 659 10;
 #X obj 100 25 cnv 15 381 62 empty empty empty 20 12 0 14 -233017 -66577
 0;
 #X text 112 31 subpatch to abstract the generation of signals. Inputs:
@@ -9,7 +9,7 @@ signal 0 -8 0 10 -4032 -1 -1 1;
 #X obj 520 190 phasor~;
 #X obj 654 189 pd-tutorial-patches/square, f 14;
 #X obj 131 273 hsl 128 15 50 300 0 0 empty empty empty -2 -8 0 10 -262144
--1 -1 9207 1;
+-1 -1 6858 1;
 #X floatatom 520 149 5 0 0 0 - - -;
 #N canvas 0 22 450 300 (subpatch) 0;
 #X array wav_gen_out_\$0 1000 float 1;
@@ -182,7 +182,7 @@ signal 0 -8 0 10 -4032 -1 -1 1;
 #X obj 677 361 *~;
 #X obj 751 360 *~;
 #X obj 130 312 hsl 128 15 0 100 0 0 amp_snd_\$0 amp_rcv_\$0 empty -2
--8 0 10 -262144 -1 -1 8000 1;
+-8 0 10 -262144 -1 -1 0 1;
 #X text 110 294 Amplitude;
 #X text 109 255 Frequency;
 #X obj 594 474 *~;
@@ -816,7 +816,9 @@ signal 0 -8 0 10 -4032 -1 -1 1;
 #X text 416 314 bangs when the value changes;
 #X obj 375 329 change;
 #X text 368 516 A ramp is needed here;
-#X connect 3 0 20 0;
+#X obj 533 238 *~;
+#X msg 552 214 0.7;
+#X connect 3 0 76 0;
 #X connect 4 0 21 0;
 #X connect 5 0 39 0;
 #X connect 5 0 6 0;
@@ -871,4 +873,6 @@ signal 0 -8 0 10 -4032 -1 -1 1;
 #X connect 68 0 70 0;
 #X connect 71 0 30 0;
 #X connect 74 0 72 0;
+#X connect 76 0 20 0;
+#X connect 77 0 76 1;
 #X coords 0 -1 1 1 230 190 1 104 141;
