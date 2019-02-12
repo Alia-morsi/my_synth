@@ -44,10 +44,10 @@ port;
 #X text 3 220 Pending: Do the loadbang and last note output message
 ;
 #X connect 0 0 1 0;
-#X connect 0 0 28 0;
-#X connect 0 0 29 0;
 #X connect 1 0 3 0;
 #X connect 1 0 27 0;
+#X connect 1 0 28 0;
+#X connect 1 0 29 0;
 #X connect 3 0 8 0;
 #X connect 3 1 17 0;
 #X connect 3 2 18 0;
