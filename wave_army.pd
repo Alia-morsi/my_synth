@@ -1,4 +1,4 @@
-#N canvas 160 90 1280 715 10;
+#N canvas 0 23 1280 715 10;
 #X obj 576 608 additive;
 #X obj 505 341 wave_gen;
 #X obj 756 342 wave_gen;
@@ -29,12 +29,23 @@ receive messages from all the phones;
 #X text 723 16 Note that since the network messages will be on the
 main patch \, then there will have to be inlets here to receive them
 from outside;
-#X text 129 376 So the wave gen that is used for the 5th will be also
+#X text 32 308 So the wave gen that is used for the 5th will be also
 used to play;
 #X text 460 118 Drone 0 env 1;
 #X obj 209 127 print x3;
 #X obj 278 127 print x4;
 #X floatatom 79 133 5 0 0 0 - - -;
+#X text 722 59 Amplitude Slider to turn all of this off;
+#X text 722 80 Ability to choose a wave to change;
+#X obj 1027 81 loadbang;
+#X msg 984 127 0;
+#X msg 1022 126 1;
+#X msg 1062 126 2;
+#X msg 1100 126 3;
+#X text 940 104 sawtooth;
+#X text 1006 105 sine;
+#X text 1053 104 square;
+#X text 1110 104 triangle;
 #X connect 0 0 5 2;
 #X connect 1 0 0 0;
 #X connect 2 0 0 1;
@@ -61,4 +72,9 @@ used to play;
 #X connect 19 0 5 0;
 #X connect 22 0 5 1;
 #X connect 28 0 10 0;
+#X connect 31 0 33 0;
+#X connect 32 0 9 3;
+#X connect 33 0 2 3;
+#X connect 33 0 1 3;
+#X connect 34 0 3 3;
 #X coords 0 -1 1 1 1300 700 1 100 150;

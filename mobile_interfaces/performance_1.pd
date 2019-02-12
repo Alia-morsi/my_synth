@@ -1,4 +1,4 @@
-#N canvas 118 230 1043 386 10;
+#N canvas 118 161 1043 386 10;
 #X obj 47 48 receive fromGUI;
 #X obj 47 76 list trim;
 #X text 45 21 Receives the Notes;
@@ -40,7 +40,12 @@ port;
 #X obj 886 180 list prepend /envelope;
 #X obj 492 203 list prepend /synth_chord_or_melody;
 #X obj 773 212 list prepend /env_drone;
+#X obj 26 200 loadbang;
+#X text 3 220 Pending: Do the loadbang and last note output message
+;
 #X connect 0 0 1 0;
+#X connect 0 0 28 0;
+#X connect 0 0 29 0;
 #X connect 1 0 3 0;
 #X connect 1 0 27 0;
 #X connect 3 0 8 0;
